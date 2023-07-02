@@ -43,7 +43,6 @@ namespace Pruefung2
                 _selectedSpieler = value;
                 RaisePropertyChanged();
                 //OnPropertyChanged("SelectedSpieler");
-
             }
         }
         public DataTable Teams
