@@ -23,6 +23,10 @@ namespace C__2_Prüfung_2
         public MainWindow()
         {
             InitializeComponent();
+            using (var context = new MyDbContext())
+            {
+                context.Database.EnsureCreated();
+            }
         }
     }
 }
