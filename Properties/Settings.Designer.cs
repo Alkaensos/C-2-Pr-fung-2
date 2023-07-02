@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace C__2_Prüfung_2.Properties
+namespace Pruefung2.Properties
 {
 
 

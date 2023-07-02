@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace C__2_Prüfung_2
+namespace Pruefung2
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
@@ -22,11 +22,10 @@ namespace C__2_Prüfung_2
     {
         public MainWindow()
         {
+            MeineDB createTableIfNotExists = new MeineDB();
+            createTableIfNotExists.CreateTableIfNotExists();
             InitializeComponent();
-            using (var context = new MyDbContext())
-            {
-                context.Database.EnsureCreated();
-            }
+            DataContext = new ViewModel();
         }
     }
 }

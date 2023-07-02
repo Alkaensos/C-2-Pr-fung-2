@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace C__2_Prüfung_2
+namespace Pruefung2
 {
     public class Model
     {
-        public class Fussballspieler
+        public class Spieler
         {
             public int Id { get; set; }
             public string Nachname { get; set; }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace C__2_Prüfung_2
+namespace Pruefung2
 {
     /// <summary>
     /// Interaktionslogik für "App.xaml"
