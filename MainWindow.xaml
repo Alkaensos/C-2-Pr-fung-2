@@ -21,7 +21,7 @@
             </TabItem>
             <TabItem Header="Fussballspieler">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid ItemsSource="{Binding Fussballspieler}" SelectedItem="{Binding SelectedSpieler}" Margin="0,0,0,249" Grid.ColumnSpan="2"/>
+                    <DataGrid ItemsSource="{Binding Fussballspieler}" SelectedItem="{Binding SelectedSpielerRow}" Margin="0,0,0,249" Grid.ColumnSpan="2"/>
                     <Button Command="{Binding UpdateSpielerCommand}" Content="Update" Margin="563,176,17,176" Grid.Column="1" />
                 </Grid>
             </TabItem>

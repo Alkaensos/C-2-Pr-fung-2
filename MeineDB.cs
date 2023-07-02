@@ -109,7 +109,7 @@ namespace Pruefung2
             {
                 connection.Open();
 
-                string sqlQuery = "UPDATE Spieler SET " +
+                string sqlQuery = "UPDATE Fussballspieler SET " +
                                   "Nachname = @Nachname, " +
                                   "Vorname = @Vorname, " +
                                   "Strasse = @Strasse, " +
@@ -121,7 +121,8 @@ namespace Pruefung2
                                   "Nummer = @Nummer, " +
                                   "Position = @Position, " +
                                   "AnzahlSpiele = @AnzahlSpiele, " + 
-                                  "AnzahlTore = @AnzahlTore " +
+                                  "AnzahlTore = @AnzahlTore, " +
+                                  "TeamID = @TeamID " +
                                   "WHERE Id = @Id";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
@@ -139,6 +140,7 @@ namespace Pruefung2
                     command.Parameters.AddWithValue("@Position", selectedSpieler.Position);
                     command.Parameters.AddWithValue("@AnzahlSpiele", selectedSpieler.AnzahlSpiele);
                     command.Parameters.AddWithValue("@AnzahlTore", selectedSpieler.AnzahlTore);
+                    command.Parameters.AddWithValue("@TeamID", selectedSpieler.TeamID);
 
                     command.ExecuteNonQuery();
                 }

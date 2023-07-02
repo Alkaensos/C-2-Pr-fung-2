@@ -10,6 +10,23 @@ namespace Pruefung2
     {
         public class Spieler
         {
+            public object Id { get; set; }
+            public string Nachname { get; set; }
+            public string Vorname { get; set; }
+            public string Strasse { get; set; }
+            public string PLZ { get; set; }
+            public string Ort { get; set; }
+            public string Telefonnummer { get; set; }
+            public double Hoehe { get; set; }
+            public DateTime Geburtsdatum { get; set; }
+            public int Nummer { get; set; }
+            public string Position { get; set; }
+            public int AnzahlSpiele { get; set; }
+            public int AnzahlTore { get; set; }
+            public int TeamID { get; set; }
+        }
+        public class SpielerRow
+        {
             public int Id { get; set; }
             public string Nachname { get; set; }
             public string Vorname { get; set; }
@@ -23,6 +40,7 @@ namespace Pruefung2
             public string Position { get; set; }
             public int AnzahlSpiele { get; set; }
             public int AnzahlTore { get; set; }
+            public int TeamID { get; set; }
         }
 
         public class Team
