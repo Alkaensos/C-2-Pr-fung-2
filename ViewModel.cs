@@ -16,11 +16,11 @@ namespace Pruefung2
         private MeineDB fussballspieler;
         private DataTable _teams;
         private MeineDB teams;
-        private Spieler _selectedSpieler;
         private DataRowView _selectedSpielerRow;
-        private Team _selectedTeam;
+        private DataRowView _selectedTeamRow;
 
         public ICommand UpdateSpielerCommand { get; }
+        public ICommand UpdateTeamCommand { get; }
 
         public DataTable Fussballspieler
         {
@@ -47,8 +47,10 @@ namespace Pruefung2
             teams = new MeineDB();
             SelectTeams();
             UpdateSpielerCommand = new RelayCommand(param => UpdateSpieler(), param => SelectedSpieler != null);
+            UpdateTeamCommand = new RelayCommand(param => UpdateTeam(), param => SelectedTeam != null);
         }
-        
+
+
         public DataRowView SelectedSpielerRow
         {
             get { return _selectedSpielerRow; }
@@ -57,6 +59,16 @@ namespace Pruefung2
                 _selectedSpielerRow = value;
                 OnPropertyChanged("SelectedSpielerRow");
                 OnPropertyChanged("SelectedSpieler");
+            }
+        }
+        public DataRowView SelectedTeamRow
+        {
+            get { return _selectedTeamRow; }
+            set
+            {
+                _selectedTeamRow = value;
+                OnPropertyChanged("SelectedTeamRow");
+                OnPropertyChanged("SelectedTeam");
             }
         }
 
@@ -88,11 +100,20 @@ namespace Pruefung2
         }
         public Team SelectedTeam
         {
-            get { return _selectedTeam; }
-            set
+            get
             {
-                _selectedTeam = value;
-                OnPropertyChanged("SelectedTeam");
+                if (SelectedTeamRow == null)
+                    return null;
+
+                return new Team
+                {
+                    Id = (int)SelectedTeamRow["id"],
+                    Name = (string)SelectedTeamRow["Name"],
+                    Strasse = (string)SelectedTeamRow["Strasse"],
+                    PLZ = (string)SelectedTeamRow["PLZ"],
+                    Ort = (string)SelectedTeamRow["Ort"],
+                    Telefonnummer = (string)SelectedTeamRow["Telefonnummer"]
+                };
             }
         }
 
@@ -123,6 +144,13 @@ namespace Pruefung2
             System.Diagnostics.Debug.WriteLine("UpdateSpieler wurde aufgerufen");
             var meineDb = new MeineDB();
             meineDb.UpdateSpieler(SelectedSpieler);
+
+        }
+        private void UpdateTeam()
+        {
+            System.Diagnostics.Debug.WriteLine("UpdateTeam wurde aufgerufen");
+            var meineDb = new MeineDB();
+            meineDb.UpdateTeam(SelectedTeam);
 
         }
     }
